@@ -1,0 +1,28 @@
+package com.sbouhaddi.expensetracker.api;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sbouhaddi.expensetracker.api.config.model.Transaction;
+import com.sbouhaddi.expensetracker.api.repositories.TransactionRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/transactions")
+public class TransactionsController {
+
+	private TransactionRepository repository;
+
+	@GetMapping("/getAll")
+	public ResponseEntity<List<Transaction>> getAllTransactions() {
+		return ResponseEntity.ok(repository.findAll());
+
+	}
+
+}

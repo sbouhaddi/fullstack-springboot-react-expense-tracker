@@ -1,0 +1,5 @@
+package com.sbouhaddi.expensetracker.api.repositories;
+
+public class TransactionRepository {
+
+}
